@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FixMaster Pro - Repair Shop Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @media print {
+        /* General Page Settings */
+        @page {
+          margin: 0;
+          size: auto;
+        }
+
+        html, body {
+          background: white !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          height: auto !important;
+          overflow: visible !important;
+          width: 100% !important;
+        }
+
+        /* Hide UI elements that shouldn't be printed */
+        .no-print, 
+        .no-print *,
+        nav,
+        sidebar,
+        button,
+        input:not([type="checkbox"]):not([type="radio"]),
+        .fixed:not(.printable),
+        .absolute:not(.printable) {
+          display: none !important;
+        }
+
+        /* The Printable Container */
+        #root {
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Ensure all parents of .printable are visible and layout-neutral */
+        main, .flex, .transition-all {
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          transform: none !important;
+          transition: none !important;
+        }
+
+        /* Printable Area */
+        .printable {
+          display: block !important;
+          position: relative !important;
+          visibility: visible !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          background: white !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Specifically for thermal receipts in POS */
+        .thermal-receipt {
+          width: 80mm !important;
+          max-width: 80mm !important;
+          margin: 0 auto !important;
+          padding: 5mm !important;
+        }
+
+        /* Ensure text is black and crisp */
+        .printable * {
+          color: black !important;
+          text-shadow: none !important;
+        }
+      }
+
+      /* Screen-only styling for print elements */
+      .print-only {
+        display: none;
+      }
+
+      @media screen {
+        .printable-container {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      /* Template Styles */
+      .template-modern .header { font-family: sans-serif; }
+      .template-modern .table-header { border-bottom: 2px solid #111827; }
+      .template-modern .table-row { border-bottom: 1px solid #e5e7eb; }
+      .template-modern .totals { border-top: 2px solid #111827; }
+
+      .template-classic { font-family: serif; }
+      .template-classic .document-body { border: 1px solid #d1d5db; padding: 1.5rem; }
+      .template-classic .table-header { background-color: #f3f4f6; border-bottom: 1px solid #9ca3af; }
+      .template-classic .table-header th { padding: 0.75rem; }
+      .template-classic .table-row { border-bottom: 1px solid #e5e7eb; }
+
+      .template-technical { font-family: monospace; }
+      .template-technical .table-header { background-color: #e5e7eb; }
+      .template-technical th, .template-technical td { padding: 0.5rem; }
+      .template-technical .table-row { border-bottom: 1px dashed #d1d5db; }
+
+      /* Animation for modals */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.2s ease-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "html5-qrcode": "https://esm.sh/html5-qrcode@2.3.8",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.39.7"
+  }
+}
+</script>
+<!-- Google API Scripts -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://apis.google.com/js/api.js" async defer></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Profixer System Pos Pro",
+  "description": "All-in-one Repair Shop Management System covering JobSheets, Inventory, Invoicing, Staff, and AI-powered diagnostics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
